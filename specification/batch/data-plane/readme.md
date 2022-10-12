@@ -30,6 +30,15 @@ openapi-type: data-plane
 tag: package-2022-01.15.0
 ```
 
+### Tag: package-2022-12.01
+
+These settings apply only when `--tag=package-2022-12.01` is specified on the command line.
+
+``` yaml $(tag) == 'package-2022-12.01'
+input-file:
+- Microsoft.Batch/stable/2022-12-01/BatchService.json
+```
+
 ### Tag: package-2022-01.15.0
 
 These settings apply only when `--tag=package-2022-01.15.0` is specified on the command line.
