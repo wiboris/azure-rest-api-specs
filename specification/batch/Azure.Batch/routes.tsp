@@ -214,12 +214,12 @@ a StartTask element, then the Pool keeps the existing StartTask.
       @doc("The pool properties to update.")
       @bodyRoot
       pool: BatchPoolUpdateContent;
-    },
-    RequestSuccessResponseHeaders & {
-      @doc("Type of content")
-      @header("content-type")
+
+      @header
+      @doc("Content type.")
       contentType: "application/merge-patch+json";
-    }
+    },
+    RequestSuccessResponseHeaders
   >;
 
   @summary("Disables automatic scaling for a Pool.")
