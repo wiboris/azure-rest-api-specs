@@ -209,7 +209,7 @@ a StartTask element, then the Pool keeps the existing StartTask.
 """)
   @route("/pools/{poolId}")
   @clientName("updatePoolInternal", "java")
-  updatePool is UpdateOperation<
+  createOrReplacePool is UpdateOperation<
     BatchPoolHeaders & {
       @doc("The pool properties to update.")
       @bodyRoot
@@ -445,7 +445,7 @@ element, then the Job keeps the existing constraints.
 """)
   @route("/jobs/{jobId}")
   @clientName("updateJobInternal", "java")
-  updateJob is UpdateOperation<
+  createOrReplaceJob is UpdateOperation<
     BatchMatchHeaders & {
       @doc("The ID of the Job whose properties you want to update.")
       @path
@@ -745,7 +745,7 @@ running Jobs are unaffected.
 """)
   @route("/jobschedules/{jobScheduleId}")
   @clientName("updateJobScheduleInternal", "java")
-  updateJobSchedule is UpdateOperation<
+  createOrReplaceJobSchedule is UpdateOperation<
     BatchMatchHeaders & {
       @doc("The ID of the Job Schedule to update.")
       @path
