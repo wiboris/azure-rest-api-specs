@@ -214,10 +214,6 @@ a StartTask element, then the Pool keeps the existing StartTask.
       @doc("The pool properties to update.")
       @bodyRoot
       pool: BatchPoolUpdateContent;
-
-      @header
-      @doc("Content type.")
-      contentType: "application/merge-patch+json";
     },
     RequestSuccessResponseHeaders
   >;

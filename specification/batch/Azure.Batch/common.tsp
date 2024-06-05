@@ -84,7 +84,7 @@ op CreateOperation<TResource, TResponse> is RpcOperation<
 #suppress "@azure-tools/typespec-azure-core/no-response-body" "Legacy behavior"
 @patch
 op UpdateOperation<TResource, TResponse> is RpcOperation<
-  BatchClientRequestHeaders & MinimalMetadata & TResource,
+  BatchClientRequestHeaders & MinimalMetadataPatch & TResource,
   TResponse & BatchResponseHeaders,
   NoFilter,
   BatchError
@@ -130,6 +130,12 @@ alias MinimalMetadata = {
   @doc("Type of content")
   @header("content-type")
   contentType: "application/json; odata=minimalmetadata";
+};
+
+alias MinimalMetadataPatch = {
+  @doc("Type of content")
+  @header("content-type")
+  contentType: "application/merge-patch+json; odata=minimalmetadata";
 };
 
 alias Created<T> = {
