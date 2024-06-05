@@ -135,7 +135,7 @@ alias MinimalMetadata = {
 alias MinimalMetadataPatch = {
   @doc("Type of content")
   @header("content-type")
-  contentType: "application/merge-patch+json; odata=minimalmetadata";
+  contentType: "application/merge-patch+json";
 };
 
 alias Created<T> = {
