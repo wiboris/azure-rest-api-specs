@@ -458,27 +458,6 @@ element, then the Job keeps the existing constraints.
     RequestSuccessResponseHeaders
   >;
 
-  @summary("Updates the properties of the specified Job.")
-  @doc("""
-This fully replaces all the updatable properties of the Job. For example, if
-the Job has constraints associated with it and if constraints is not specified
-with this request, then the Batch service will remove the existing constraints.
-""")
-  @route("/jobs/{jobId}")
-  @clientName("replaceJobInternal", "java")
-  replaceJob is ReplaceOperation<
-    BatchMatchHeaders & {
-      @doc("The ID of the Job whose properties you want to update.")
-      @path
-      jobId: string;
-
-      @doc("A job with updated properties")
-      @bodyRoot
-      job: BatchJob;
-    },
-    RequestSuccessResponseHeaders
-  >;
-
   @summary("Disables the specified Job, preventing new Tasks from running.")
   @doc("""
 The Batch Service immediately moves the Job to the disabling state. Batch then
@@ -775,29 +754,6 @@ running Jobs are unaffected.
       @doc("The options to use for updating the Job Schedule.")
       @bodyRoot
       jobSchedule: BatchJobScheduleUpdateContent;
-    },
-    RequestSuccessResponseHeaders
-  >;
-
-  @summary("Updates the properties of the specified Job Schedule.")
-  @doc("""
-This fully replaces all the updatable properties of the Job Schedule. For
-example, if the schedule property is not specified with this request, then the
-Batch service will remove the existing schedule. Changes to a Job Schedule only
-impact Jobs created by the schedule after the update has taken place; currently
-running Jobs are unaffected.
-""")
-  @route("/jobschedules/{jobScheduleId}")
-  @clientName("replaceJobScheduleInternal", "java")
-  replaceJobSchedule is ReplaceOperation<
-    BatchMatchHeaders & {
-      @doc("The ID of the Job Schedule to update.")
-      @path
-      jobScheduleId: string;
-
-      @doc("A Job Schedule with updated properties")
-      @bodyRoot
-      jobSchedule: BatchJobSchedule;
     },
     RequestSuccessResponseHeaders
   >;
