@@ -82,9 +82,9 @@ op CreateOperation<TResource, TResponse> is RpcOperation<
 >;
 
 #suppress "@azure-tools/typespec-azure-core/no-response-body" "Legacy behavior"
-@patch
+@put
 op UpdateOperation<TResource, TResponse> is RpcOperation<
-  BatchClientRequestHeaders & MinimalMetadataPatch & TResource,
+  BatchClientRequestHeaders & MinimalMetadata & TResource,
   TResponse & BatchResponseHeaders,
   NoFilter,
   BatchError
